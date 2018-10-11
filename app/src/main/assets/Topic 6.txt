@@ -1,0 +1,35 @@
+Topic 6:
+
+Benefits of Methods: 
+Write a method once, you can reuse it anywhere 
+Information hiding (abstraction) to hide the detailed implementation from the user 
+Reduce complexity and redundant coding (modularise codes and improve the quality of the program) 
+
+
+Method 
+A method is a collection of statements that are grouped together to perform an operation 
+
+Method Signature 
+Combination of the method name and the parameter list 
+
+
+(Formal) Parameters 
+Variables defined in the method header are known as formal parameters (or simply parameters) 
+You can use any data type for a parameter of a method 
+When you declare a parameter to a method, you provide a name for that parameter 
+This name is used within the method body to refer to the passed-in argument 
+
+
+(Actual) Parameters or Arguments 
+When a method is invoked, you pass a value to the parameter. This value is referred to as actual parameter or argument 
+When calling a method, you provide arguments, which must be given in the same order as their respective parameters in the method signature, i.e., match the declaration's parameters in type and order 
+
+
+Return Value 
+A method may return a value 
+The return value has a returnValueType, which is the data type of the value the method returns 
+If the method does not return a value, the returnValueType is the keyword void 
+
+Local Variables and Scope:A local variable: a variable defined inside a methodScope: the part of the program where the variable can bereferencedThe scope of a local variable starts from its declaration,and continues to the end of the block that contains the variable
+
+Overloading Methods:Define methods with the same name as long as their signatures are differentThe compiler determines which method to use based on the method signature
