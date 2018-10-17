@@ -1,0 +1,74 @@
+Topic 4:
+
+The boolean type and relational operators
+Often in a program you need to compare two values, such as whether i is greater than j
+Java provides six comparison operators (also known as relational operators) that can be used to compare two values
+The result of the comparison is a boolean value: true or false
+E.g.boolean b = (1 > 2); //This will return false
+
+
+The Operators
+less than <
+less than or equal to <=
+greater than >
+greater than or equal to equal to >=
+not equal to !=
+
+! 	not 	logical negation
+&& 	and 	logical conjunction
+|| 	or 	logical disjunction
+^ 	exclusive or 	logical exclusion
+
+The difference between || and ^
+While both relate to two conditions, || will return true if one or both conditions are satisfied.
+In the case of ^ it will only return true if one of the conditions is satisfied and will return false if both conditions are satisfied.
+
+
+
+The if conditional statement:
+Selectively execute part of a program
+Syntax: if(condition) statement;
+Condition is a boolean expression. If the condition is true, then the statement is executed
+
+The two-way if-else conditional statement:
+ if (boolean-expression) {
+   statement(s)-for-the-true-case;
+}
+else {
+   statement(s)-for-the-false-case;
+ }
+The program will go down a different path dependent on whether or not the condition is satisfied.
+
+E.g. if (radius >= 0) {
+   area = radius * radius * 3.14159;
+   System.out.println("The area for the “
+     + “circle of radius " + radius +
+     " is " + area);}
+     else {
+     System.out.println("Negative input");}
+
+Shortcut:
+x?y:z
+It takes three arguments that together form a conditional expression
+     grade > 70 ? “Passed” : “Failed”
+The first argument is a Boolean
+The second argument is the value of the operation if the condition is true
+The third argument is the value of the operation if the condition is false
+
+
+The switch statement
+Use when a sequence of comparisons needed to be made against
+several constant alternatives
+A switch statement evaluates an expression to determine a value and then matches that value with one of several possible cases
+
+switch (switch-expression) {
+   case value1:  statement(s)1;
+            break;
+   case value2: statement(s)2;
+break;
+   ...
+   case valueN: statement(s)N;
+            break;
+   default: statement(s)-for-default;
+}
+
