@@ -1,0 +1,52 @@
+Topic 1: Intro to programming
+
+How to use Java:
+	- A program is created in Java with a .java file (a source code file)
+	- A compiler is used to compile (translate) the source code into a .class file (Java bytecode).
+	- The Java Virtual Machine then executes the .class file
+	- This file is then presented in a binary format, which the machine/computer is able to understand. 
+	
+Introduction to Netbeans:
+ - Netbeans will be the IDE used for 1609  
+	- An IDE or Integrated Development Environments is a software packages that includes a text editor for writing programs, a compiler, and other tools to help assist with programming
+
+Why Java:
+	- It is widely used across all organisations
+	- It is used for Android apps
+
+Steps for designing a program:
+	1. Understand the goal
+	2. Determine the steps to reach the goal
+	3. Make your program
+
+Pseudocode:
+	- Informal coding that has no syntax rules 
+	- Used for drafting
+
+Flowcharts:
+	- Graphical representation of steps to be taken
+	- Breaks down complex programs into manageable steps
+
+Sample code:
+
+public class Introduction {
+
+Public static  void main (String[] args) {
+System.out.println("Welcome to INFS1609");
+}
+
+}
+
+The result? 
+It will print out Welcome to INFS1609
+
+
+Makeup of a Java program:
+• Class name- the name of the class
+• Main method - a requirement of a class, this will be the starting point of a program
+• Statements - line of code that are used
+• Statement terminator - A semicolon ; which denotes the end of a statement
+• Reserved words - special words to the compiler and cannot be used or changed
+• Comments - lines that are not involved in the code itself
+• Blocks - {} groups components in a program
+

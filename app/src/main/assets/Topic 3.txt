@@ -1,0 +1,68 @@
+Topic 3 
+
++        Addition-        Subtraction*        Multiplication/        Division%        Remainder
+
+
+Different Data Type Division Notes
+5 / 2 yields an integer 2 
+5.0 / 2 yields a double value 2.5
+5 % 2 yields 1 (the remainder of the division) 
+
+Literals
+A literal is a value that appears directly in the program. For example, 34, 1,000,000, and 5.0 are literals in the following statements: 
+int i = 34;long x = 1000000;double d = 5.0;
+A compilation error would occur if the literal were too large for the variable to hold 
+For example, byte b = 1000 would cause a compilation error, because 1000 cannot be stored in a variable of the byte type 
+
+Augmented Assignment Operators
++= Addition Assignment
+E.g. x+=1; translates to x=x+1;
+
+-= Subtraction Assignment
+E.g. x-=1; translates to x=x-1;
+
+*= Multiply assignment
+E.g. x*=1; translates to x=x*1;
+
+/= Division assignment
+E.g. x/=1; translates to x=x/1;
+
+%= Remainder Assignment
+E.g. x%=1; translates to x=x%1;
+
+
+Increment and Decrement Operations
+Can be placed before (as a prefix) or after (as a suffix) the desired variable
+If you place an increment or decrement operator as a prefix, the operator is applied before the rest of the expression is evaluated.
+If you place the operator as a suffix, the operator is applied after the expression is evaluated.
+
+++ var
+
+Var ++
+
+-- var
+
+Var--
+
+
+Numeric Type Conversion 
+range increases from left to right of the following:
+byte, short, int, long, float, double 
+
+Implicit casting
+double d = 3; (type widening) 
+
+Explicit casting
+int i = (int)3.0; (type narrowing)
+int i = (int)3.9; (Fraction part is truncated) 
+
+
+Automatic implicit casting or Assignment Conversion 
+When you assign a value to a numeric variable whose type supports a larger range of values (widening a type)it is automatically done.
+E.g., you can assign a long to a float variable 
+
+Explicit type casting 
+When casting a type with a large range to a type with a smaller range (Narrowing a type) the target type must be specified
+Syntax: specify the target type in parentheses ( ), followed by the variable’s name 
+For example: (int)1.7 
+
