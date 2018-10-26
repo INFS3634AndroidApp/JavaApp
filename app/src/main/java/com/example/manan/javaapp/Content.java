@@ -1,3 +1,5 @@
+// This activity uses code from this library to show pdf documents: https://github.com/barteksc/AndroidPdfViewer
+
 package com.example.manan.javaapp;
 
 import android.content.Intent;
@@ -17,6 +19,7 @@ public class Content extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_content);
+
 
         PDFView pdfView = findViewById(R.id.pdfView);
         Button backBtn = findViewById(R.id.backBtn);
