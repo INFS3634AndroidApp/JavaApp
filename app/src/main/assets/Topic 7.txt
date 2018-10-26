@@ -1,32 +1,0 @@
-Topic 7:
-
-Introducing Arrays 
-Syntax: 
-datatype[] arrayName = new datatype[arraySize]; 
-
-Declaring, creating and initializing arrays in one step 
-double[] myList = {1.9, 2.9, 3.4, 3.5};
-This is equivalent to the following statements: 
-double[] myList = new double[4];myList[0] = 1.9;myList[1] = 2.9;myList[2] = 3.4;
-myList[3] = 3.5;
- 
-Once an array is created, its size is fixed and cannot be changed. You can find the size of an array using: arrayName.length
-
-Indexed Variables 
-The array elements are accessed through the index. The array indices are 0-based, i.e., it starts from 0 to array.length-1 
-
-E.g. myList holds ten double values and the indices are from 0 to 9 
-Each element in the array is represented using the following syntax, known as an indexed variable: arrayName[index];
-
-Examples: Working with arrays using for loopSumming all elements in an array double total = 0; for (int i = 0; i < myList.length; i++) {    total += myList[i]; }
-
-Copying Arrays
-Cannot Simply Use =Using a loopint[] sourceArray = {2, 3, 1, 5, 10};int[] targetArray = newint[sourceArray.length];for (int i = 0; i < sourceArrays.length; i++){   targetArray[i] = sourceArray[i];}
-Or
-The arraycopy utilityarraycopy(sourceArray, src_pos, targetArray,tar_pos, length);
-
-
-Pass by valueThere are important differences between passing a value of variables of primitive data types and passing arrays (reference type)
-For a parameter of a primitive type value, the actual value is passed. Changing the value of the local parameter inside the method does not affect the value of the variable outside the method
-For a parameter of an array type, the value of the parameter contains a reference to an array; this reference is passed to the method. Any changes to the array that occur inside the method body will affect the original array that was passed as the argument
-

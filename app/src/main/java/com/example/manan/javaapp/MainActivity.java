@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,11 +32,13 @@ public class MainActivity extends AppCompatActivity {
     private Button signInBtn;
 
     private TextView messageTV;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         signUpBtn = findViewById(R.id.signUpBtn);
 
         messageTV = findViewById(R.id.messageTV);
+        progressBar = findViewById(R.id.progressBar);
+
+        progressBar.setVisibility(View.GONE);
 
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +61,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // send the sign in request to firebase
         signInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 String email = emailET.getText().toString();
                 String password = pwET.getText().toString();
                 mAuth.signInWithEmailAndPassword(email, password)
@@ -65,18 +73,17 @@ public class MainActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
-//                                    FirebaseUser user = mAuth.getCurrentUser();
                                     Intent intent = new Intent(getApplicationContext(),Home.class);
                                     startActivity(intent);
                                 } else {
                                     // If sign in fails, display a message to the user.
+                                    progressBar.setVisibility(View.GONE);
                                     Exception ex = task.getException();
                                     Log.w(TAG, "signInWithEmail:failure", ex);
 
-//                                    Toast.makeText(MainActivity.this, "Authentication failed.",
-//                                            Toast.LENGTH_SHORT).show();
                                     messageTV.setText("Invalid email or password. Please try again.");
                                     messageTV.setTextColor(Color.RED);
                                 }
@@ -92,33 +99,4 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    //Method Used to Read .txt file from Assets Folder
-    public void read(String filename) {
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(
-                    new InputStreamReader(getAssets().open(filename)));
-
-
-            String mLine;
-            while ((mLine = reader.readLine()) != null) {
-                text.append(mLine);
-                text.append('\n');
-            }
-        } catch (IOException e) {
-            Toast.makeText(getApplicationContext(), "Error reading file!", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-
-                }
-            }
-        }
-        // Setting the content of .txt file into the Textview (located inside scrollview)
-        textView = findViewById(R.id.reader);
-        textView.setText(text);
-    }
 }

@@ -1,13 +1,17 @@
 package com.example.manan.javaapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +37,8 @@ public class SignUp extends AppCompatActivity {
     private EditText pwET;
     private TextView messageTV;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +53,14 @@ public class SignUp extends AppCompatActivity {
         pwET = findViewById(R.id.pwET);
         messageTV = findViewById(R.id.messageTV);
 
+        progressBar = findViewById(R.id.progressBar);
+        progressBar.setVisibility(View.GONE);
 
+        // send sign up request to firebase
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 String email = emailET.getText().toString();
                 String pw = pwET.getText().toString();
 
@@ -62,11 +72,17 @@ public class SignUp extends AppCompatActivity {
                                     // Sign up success, navigate back to sign in
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser fbUser = mAuth.getCurrentUser();
-                                    User user = new User(fbUser.getUid(),1);
-                                    db.child("user").child(user.getUid()).setValue(user);
-                                    Intent intent = new Intent(SignUp.this,MainActivity.class);
+                                    User user = new User(1);
+                                    db.child("user").child(mAuth.getCurrentUser().getUid()).setValue(user);
+                                    Toast toast = Toast.makeText(getApplicationContext(),
+                                            "Sign up successful! Please log in.",
+                                            Toast.LENGTH_LONG);
+                                    toast.show();
+                                    Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                                     startActivity(intent);
+
                                 } else {
+                                    progressBar.setVisibility(View.GONE);
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "createUserWithEmail:failure", task.getException());
                                     messageTV.setText("Sorry, could not create an account with those credentials. Please try again.");

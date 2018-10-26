@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+
+    <style name="contentButton">
+        <item name="android:background">#05386B</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+    <style name="quizButton">
+        <item name="android:background">#379683</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
+
 </resources>
